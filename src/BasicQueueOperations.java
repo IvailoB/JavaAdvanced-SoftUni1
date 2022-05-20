@@ -1,9 +1,9 @@
-package StacksAndQueuesExe;
+import java.util.ArrayDeque;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Scanner;
 
-import java.lang.reflect.Array;
-import java.util.*;
-
-public class BasicStackOperations {
+public class BasicQueueOperations {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -16,20 +16,21 @@ public class BasicStackOperations {
 
         int[] numbers = Arrays.stream(scanner.nextLine().split(" "))
                 .mapToInt(Integer::parseInt).toArray();
-        ArrayDeque<Integer> stack = new ArrayDeque<>();
+        ArrayDeque<Integer> queue = new ArrayDeque<>();
 
         for (int i = 0; i < toPush; i++) {
-            stack.push(numbers[i]);
+            queue.offer(numbers[i]);
         }
         for (int i = 0; i < toPop; i++) {
-            stack.pop();
+            queue.poll();
         }
-        if (stack.contains(searchElement)){
+        if (queue.contains(searchElement)) {
             System.out.println("true");
-        }else if (stack.isEmpty()){
+        } else if (queue.isEmpty()) {
             System.out.println("0");
-        }else {
-            System.out.println(Collections.min(stack));
+        } else {
+            System.out.println(Collections.min(queue));
         }
     }
 }
+
