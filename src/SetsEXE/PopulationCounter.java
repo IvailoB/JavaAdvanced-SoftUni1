@@ -1,23 +1,16 @@
 package SetsEXE;
 
-import StacksAndQueuesExe.ReverseNumber;
-
-import java.util.Collections;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.TreeMap;
-import java.util.stream.Collectors;
-
+import java.util.*;
 public class PopulationCounter {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         String input = scanner.nextLine();
 
-        TreeMap<String, TreeMap<String, Integer>> countyMap = new TreeMap<>();
-        TreeMap<String, Integer> countryPopulationMap = new TreeMap<>();
+        TreeMap<String, TreeMap<String, Integer>> countyMap = new TreeMap<>(Collections.reverseOrder());
+        TreeMap<String, Integer> countryPopulationMap = new TreeMap<>(Collections.reverseOrder());
 
-        int totalPopulaiton = 0;
+        int totalPopulation = 0;
         while (!input.equals("report")) {
             String[] data = input.split("\\|");
 
@@ -28,11 +21,11 @@ public class PopulationCounter {
             if (!countyMap.containsKey(country)) {
                 countyMap.put(country, new TreeMap<>());
                 countryPopulationMap.put(country, 0);
-                totalPopulaiton = 0;
+                totalPopulation = 0;
             }
-            totalPopulaiton += population;
+            totalPopulation += population;
             if (countryPopulationMap.containsKey(country)) {
-                countryPopulationMap.replace(country, totalPopulaiton);
+                countryPopulationMap.replace(country, totalPopulation);
             }
 
 
@@ -48,7 +41,7 @@ public class PopulationCounter {
         for (var entry : countyMap.entrySet()) {
 
             String country = entry.getKey();
-            System.out.printf("%s (total population: %d)%n", entry.getKey(), totalPopulaiton);
+            System.out.printf("%s (total population: %d)%n", entry.getKey(), countryPopulationMap.get(country));
 
             var cityInformation = entry.getValue();
 
