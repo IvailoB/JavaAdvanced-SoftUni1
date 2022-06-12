@@ -21,6 +21,8 @@ public class Main {
 
             Pokemon pokemon = new Pokemon(pokemonName, pokemonElement, pokemonHealth);
             pokemonList.add(pokemon);
+            trainerPokemonMap.putIfAbsent(trainerName,pokemonList);
+
             Trainer trainer = new Trainer(trainerName, pokemonList);
             trainerList.add(trainer);
             trainerPokemonMap.putIfAbsent(trainerName, pokemonList);
@@ -33,12 +35,13 @@ public class Main {
         while (!input.equals("End")) {
             switch (input) {
                 case "Fire":
-//                    trainerList.stream()
-//                            .filter(tr-> tr.)
+
                     break;
                 case "Water":
+
                     break;
                 case "Electricity":
+
                     break;
             }
 

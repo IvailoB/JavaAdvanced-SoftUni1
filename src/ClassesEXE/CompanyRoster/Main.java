@@ -46,7 +46,8 @@ public class Main {
             if (!departmentExists) {
                 departmentList.add(new Department(department));
             }
-            Department currentDepartment = departmentList.stream().filter(dep -> dep.getName().equals(department)).findFirst().get();
+            Department currentDepartment = departmentList.stream().filter(dep -> dep.getName().equals(department))
+                    .findFirst().get();
             currentDepartment.getEmployeeList().add(employee);
         }
         Department highestPaidDepartment = departmentList.stream().max(Comparator.comparingDouble(e -> e.calculateAverage()))
