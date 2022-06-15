@@ -4,23 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Trainer {
-    private String name;
-    private int numberOfBadges = 0;
-    private List<Pokemon> pokemons;
+    private String trainerName;
+    private int numberOfBadges;
 
-    public Trainer(String name, List<Pokemon> pokemons) {
-        this.name = name;
-        this.pokemons = new ArrayList<>();
-        this.pokemons.addAll(pokemons);
+    public Trainer(String trainerName, int numberOfBadges) {
+        this.trainerName = trainerName;
+        this.numberOfBadges = numberOfBadges;
     }
 
-
-    public String getName() {
-        return name;
+    public String getTrainerName() {
+        return trainerName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTrainerName(String trainerName) {
+        this.trainerName = trainerName;
     }
 
     public int getNumberOfBadges() {
@@ -29,13 +26,5 @@ public class Trainer {
 
     public void setNumberOfBadges(int numberOfBadges) {
         this.numberOfBadges = numberOfBadges;
-    }
-
-    public List<Pokemon> getPokemons() {
-        return pokemons;
-    }
-
-    public void setPokemons(List<Pokemon> pokemons) {
-        this.pokemons = pokemons;
     }
 }

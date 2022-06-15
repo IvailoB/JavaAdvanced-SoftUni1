@@ -1,40 +1,37 @@
 package ClassesEXE.PokemonTraner;
 
 public class Pokemon {
-    private String name;
-    private String element;
-    private int health;
+    private String pokemonName;
+    private String pokemonElement;
+    private String pokemonHealth;
 
-    public Pokemon(String name, String element, int health) {
-        this.name = name;
-        this.element = element;
-        this.health = health;
+    public Pokemon(String pokemonName, String pokemonElement, String pokemonHealth) {
+        this.pokemonName = pokemonName;
+        this.pokemonElement = pokemonElement;
+        this.pokemonHealth = pokemonHealth;
     }
 
-
-
-
-    public String getName() {
-        return name;
+    public String getPokemonName() {
+        return pokemonName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPokemonName(String pokemonName) {
+        this.pokemonName = pokemonName;
     }
 
-    public String getElement() {
-        return element;
+    public String getPokemonElement() {
+        return pokemonElement;
     }
 
-    public void setElement(String element) {
-        this.element = element;
+    public void setPokemonElement(String pokemonElement) {
+        this.pokemonElement = pokemonElement;
     }
 
-    public int getHealth() {
-        return health;
+    public String getPokemonHealth() {
+        return pokemonHealth;
     }
 
-    public void setHealth(int health) {
-        this.health = health;
+    public void setPokemonHealth(String pokemonHealth) {
+        this.pokemonHealth = pokemonHealth;
     }
 }
