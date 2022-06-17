@@ -1,10 +1,10 @@
 package ClassesEXE.Google;
 
-public class Parents {
+public class Parent {
     private String parentName;
     private String parentBirthday;
 
-    public Parents(String parentName, String parentBirthday) {
+    public Parent(String parentName, String parentBirthday) {
         this.parentName = parentName;
         this.parentBirthday = parentBirthday;
     }
