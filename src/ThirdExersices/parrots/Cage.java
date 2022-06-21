@@ -1,0 +1,76 @@
+package ThirdExersices.parrots;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Cage {
+    private String name;
+    private int capacity;
+    private List<Parrot> parrots;
+
+    public Cage(String name, int capacity) {
+        this.name = name;
+        this.capacity = capacity;
+        parrots = new ArrayList<>();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void add(Parrot parrot) {
+        if (parrots.size() < capacity) {
+            parrots.add(parrot);
+        }
+    }
+
+    public boolean remove(String name) {
+        for (Parrot parrot : parrots) {
+            if (parrot.getName().equals(name)) {
+                parrots.remove(parrot);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Parrot sellParrot(String name) {
+        for (Parrot parrot : parrots) {
+            if (parrot.getName().equals(name)) {
+                parrot.setAvailable(false);
+                return parrot;
+            }
+        }
+        return null;
+    }
+
+    public List<Parrot> sellParrotBySpecies(String species) {
+        List<Parrot> parrotList = new ArrayList<>();
+        for (Parrot parrot : parrots) {
+            if (parrot.getSpecies().equals(species)) {
+                parrot.setAvailable(false);
+                parrotList.add(parrot);
+            }
+        }
+        return parrotList;
+    }
+
+    public int count() {
+        return parrots.size();
+    }
+
+    public String report() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(String.format("Parrots available at %s:\n", this.name));
+        for (Parrot parrot : parrots) {
+            if (parrot.isAvailable()){
+                sb.append(parrot.toString()).append(System.lineSeparator());
+            }
+        }
+        return sb.toString();
+    }
+}
