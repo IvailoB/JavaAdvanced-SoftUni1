@@ -6,12 +6,12 @@ import java.util.List;
 public class Cage {
     private String name;
     private int capacity;
-    private List<Parrot> parrots;
+    private List<Parrot> data;
 
     public Cage(String name, int capacity) {
         this.name = name;
         this.capacity = capacity;
-        parrots = new ArrayList<>();
+        data = new ArrayList<>();
     }
 
     public String getName() {
@@ -23,15 +23,15 @@ public class Cage {
     }
 
     public void add(Parrot parrot) {
-        if (parrots.size() < capacity) {
-            parrots.add(parrot);
+        if (data.size() < capacity) {
+            data.add(parrot);
         }
     }
 
     public boolean remove(String name) {
-        for (Parrot parrot : parrots) {
+        for (Parrot parrot : data) {
             if (parrot.getName().equals(name)) {
-                parrots.remove(parrot);
+                data.remove(parrot);
                 return true;
             }
         }
@@ -39,7 +39,7 @@ public class Cage {
     }
 
     public Parrot sellParrot(String name) {
-        for (Parrot parrot : parrots) {
+        for (Parrot parrot : data) {
             if (parrot.getName().equals(name)) {
                 parrot.setAvailable(false);
                 return parrot;
@@ -50,7 +50,7 @@ public class Cage {
 
     public List<Parrot> sellParrotBySpecies(String species) {
         List<Parrot> parrotList = new ArrayList<>();
-        for (Parrot parrot : parrots) {
+        for (Parrot parrot : data) {
             if (parrot.getSpecies().equals(species)) {
                 parrot.setAvailable(false);
                 parrotList.add(parrot);
@@ -60,15 +60,15 @@ public class Cage {
     }
 
     public int count() {
-        return parrots.size();
+        return data.size();
     }
 
     public String report() {
         StringBuilder sb = new StringBuilder();
-        sb.append(String.format("Parrots available at %s:\n", this.name));
-        for (Parrot parrot : parrots) {
+        sb.append(String.format("Parrots available at %s:\n",name));
+        for (Parrot parrot : data) {
             if (parrot.isAvailable()){
-                sb.append(parrot.toString()).append(System.lineSeparator());
+                sb.append(parrot).append(System.lineSeparator());
             }
         }
         return sb.toString();

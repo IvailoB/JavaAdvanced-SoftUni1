@@ -29,11 +29,11 @@ public class University {
         String result = null;
 
         if (getStudentCount() >= capacity) {
-            result = "No seats in the exampreparation.university";
+            result = "No seats in the exampreparation.ThirdExersices.university";
         }
 
         if (getStudent(student.firstName, student.lastName) != null) {
-            result = "Student is already in the exampreparation.university";
+            result = "Student is already in the exampreparation.ThirdExersices.university";
         }
 
         if (result == null) {
